@@ -99,7 +99,7 @@ y de equipo.
 
 - [ ] Entender y reconocer los selectores del DOM (querySelector | querySelectorAll).
 - [ ] Manejar eventos del DOM. (addEventListener)
-- [ ] Manipular dinámicamente el DOM. (createElement, appendchild, innerHTML, value)
+- [ ] Manipular dinámicamente el DOM. (createElement, appendchild, template string, innerHTML, value)
 
 ### Javascript
 
@@ -120,7 +120,7 @@ y de equipo.
 - [ ] Utilizar los repositorios de GitHub (`clone` | `fork` | gh-pages).
 - [ ] Colaborar en Github (pull requests).
 
-### Buenas prácticas de desarrollo
+### Linter y Organización
 - [ ] Organizar y dividir el código en módulos (Modularización).
 - [ ] Utilizar identificadores descriptivos (Nomenclatura | Semántica).
 - [ ] Utilizar linter para seguir buenas prácticas (ESLINT).
@@ -130,12 +130,10 @@ y de equipo.
 * Este proyecto se debe resolver en duplas.
 * El proyecto será entregado subiendo tu código a GitHub (`commit`/`push`) y la
   interfaz será desplegada usando [GitHub Pages](https://pages.github.com/).
-* Tiempo: toma como referencia 3 semanas.
+* Para este proyecto tendremos 2 Sprints.
 
-## 5. Criterios de aceptación mínimos del proyecto
+## 5. Avances Esperados
 
-Los criterios que deberás considerar para saber si has completado este proyecto
-son:
 
 ### Definición del producto
 
@@ -208,12 +206,8 @@ El _boilerplate_ de este proyecto no incluye Pruebas Unitarias (_tests_), así e
 que  tendrás que escribirlas tú para las funciones que tenga tu código. <!--encargadas de  _procesar_, _filtrar_ y _ordenar_ la data, así como _calcular_
 estadísticas.-->
 
-Tus _pruebas unitarias_ deben dar una cobertura del 70% de _statements_
-(_sentencias_), _functions_ (_funciones_), _lines_ (_líneas_), y _branches_
-(_ramas_) del archivo `src/data.js` que contenga tus funciones y está detallado
-en la sección de [Consideraciones técnicas](#srcdatajs).
 
-## 6. Parte adicional-opcional (extensión)
+## 6. Hacker Edition
 
 Si **terminaste** con todo lo anterior y te queda tiempo, intenta explorar y
 completar parte o todo de lo siguiente:
@@ -235,7 +229,7 @@ La lógica del proyecto debe estar implementada completamente en JavaScript
 (ES6), HTML y CSS. En este proyecto NO está permitido usar librerías o
 frameworks, solo [vanilla JavaScript](https://medium.com/laboratoria-how-to/vanillajs-vs-jquery-31e623bbd46e),
 con la excepción de librerías para hacer gráficas (charts); ver
-[_Parte opcional_](#6-hacker-edition) más arriba.
+[_Hacker_Edition_](#6-hacker-edition) más arriba.
 
 No se debe utilizar la _pseudo-variable_ `this`.
 
