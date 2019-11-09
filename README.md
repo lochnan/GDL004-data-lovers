@@ -56,19 +56,20 @@ posible para ayudarle a satisfacer sus necesidades.
   En este set encontrarás una lista con los 251 Pokémon de la región de Kanto
   y Johto, junto con sus respectivas estadísticas usadas en el juego
   [Pokémon GO](http://pokemongolive.com).
-  * [Investigación con jugadores de Pokémon Go](/pokemon/README.md)
 
 * [League of Legends - Challenger leaderboard](src/data/lol/lol.json):
   Este set de datos muestra la lista de campeones en una liga del
   juego League of Legends (LoL).
-  * [Investigación con jugadores de LoL](/lol/README.md)
 
 * [Harry Potter](src/data/potter/potter.json):
   Este set de datos muestra la lista de los personajes del mundo de
   [Harry Potter: Wizards Unite](https://www.wizardingworld.com), junto con sus
   respectivas características mencionadas en la serie de novelas de Harry Potter
   escrita por la autora británica J.K.Rowling.
-  * [Investigación con jugadores de Harry Potter: Wizards Unite](/potter/README.md)
+
+* [Rick and Morty](src/data/rickandmorty/rickandmorty.json).
+  Este set nos proporciona la lista de los personajes de la serie Rick and
+  Morty. Puedes revisar la documentación de su API en este [link](https://rickandmortyapi.com).
 
 
 ## 3. Objetivos de aprendizaje
