@@ -4,9 +4,19 @@
  * import POTTER from './data/potter/potter.js'
  */
 
-import { example } from './data.js';
+import POKEMON from './data/pokemon/pokemon.js'; //poner el typemodule//
+console.log(POKEMON);
 
-console.log(example);
+
+function nextScreen (){
+    document.getElementById("main").style.display = "none";
+      document.getElementById("grass").style.display = "block";
+}
+
+
+document.getElementById("Bgrass").addEventListener("click", nextScreen); //aqui va la funcion para que siga a la sig pantalla
+
+
 
 /*
  * console.log(POKEMON);
