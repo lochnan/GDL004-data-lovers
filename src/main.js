@@ -4,18 +4,25 @@
  * import POTTER from './data/potter/potter.js'
  */
 
-import POKEMON from './data/pokemon/pokemon.js'; //poner el typemodule//
-console.log(POKEMON);
+import {pokemon} from './data/pokemon/pokemon.js'; //poner el typemodule//
+import {pokemonsByName} from './data.js';
 
 
-function nextScreen (){
-    document.getElementById("main").style.display = "none";
-      document.getElementById("grass").style.display = "block";
-}
+//Botones para abrir las  categorías
+    document.getElementById("Bgrass").addEventListener("click", screenGrass); 
+
+    function screenGrass () { 
+         
+        document.getElementById("main").style.display = "none";
+        document.getElementById("grass").style.display = "block";
+    
+        // Obtentiendo un array donde sólo esta el pokemon "Pidgeot"
+        let pokemonsNames = [pokemon].filter(pokemonsByName); // namePokemons es la función que traje para que filtre por name
+        console.log(pokemonsNames);
+    };
 
 
-document.getElementById("Bgrass").addEventListener("click", nextScreen); //aqui va la funcion para que siga a la sig pantalla
-
+ 
 
 
 /*
