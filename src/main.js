@@ -8,16 +8,21 @@ import {pokemon} from './data/pokemon/pokemon.js'; //poner el typemodule//
 import {pokemonsByName} from './data.js';
 
 
+
+
 //Botones para abrir las  categorías
     document.getElementById("Bgrass").addEventListener("click", screenGrass); 
 
     function screenGrass () { 
-         
+         //Haciendo que pase la págin a
         document.getElementById("main").style.display = "none";
         document.getElementById("grass").style.display = "block";
-    
-        // Obtentiendo un array donde sólo esta el pokemon "Pidgeot"
-        let pokemonsNames = [pokemon].filter(pokemonsByName); // namePokemons es la función que traje para que filtre por name
+        
+
+        let pokemonsNames = pokemonsByName;
+
+
+        document.getElementById("categoryGrass").innerHTML= pokemonsNames;
         console.log(pokemonsNames);
     };
 

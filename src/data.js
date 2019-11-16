@@ -2,15 +2,11 @@
 // esta es una función de ejemplo
 
 
+import {pokemon} from './data/pokemon/pokemon.js';
 
-/* En teoría puedo exportar la función y aplicarla al array del
-main.js pata crear allá una nueva variable*/
-
-export const pokemonsByName = (pokemones) => {
-  return pokemones.name == "Bulbasaur";
-};
-
-
+export const pokemonsByName = pokemon.filter((pokemones) => {
+  return pokemones.name == 'Bulbasaur';
+  });
 
 
 /* ----- NOTAS ----- /*
