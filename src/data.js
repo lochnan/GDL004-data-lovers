@@ -2,16 +2,52 @@
 // esta es una función de ejemplo
 
 
-import {pokemon} from './data/pokemon/pokemon.js';
+import { pokemon } from './data/pokemon/pokemon.js';
 
-export const pokemonsByName = pokemon.filter((pokemones) => {
-  return pokemones.name == 'Bulbasaur';
-  });
+/*Lo que hace indexOf es que me da el índice, pero igual retorna -1 cuando un elemento no está y cero
+cuando si está, así que eso lo usé y coloqué que si el strting "Poison" es diferente de -1 regresara true. Nota: yo le 
+tengo que poner que es lo que tiene que regresar.
+Es probable que funcione porque sólo tengo un tipo fuego en cada uno de los objetos, ya que indexOf solo
+regresa el primer index en el que el elemento puede ser encontrado */
+
+export const pokemonsByType = pokemon.filter((pokemones) => {
+  if (pokemones.type.indexOf('Poison') !== -1) {
+    return true;
+  }
+});
+
+
+export const typeStringPokemons = pokemonsByType.map(poison => `${poison.name}`);
+
+
+
+
 
 
 /* ----- NOTAS ----- /*
 
-/* Para declarar una función que hace que filtre pokemones 
+export const pokemonsByType = pokemon.filter((pokemones) => {
+    if (pokemones.type.indexOf('Poison') !== -1) {
+      return true;
+    }
+});
+
+
+export const pokemonsByType = pokemon.filter((pokemones) => {
+
+  var resultado = false;
+
+  if (pokemones.type.indexOf('Poison') === -1) {
+    resultado = false;
+
+  } else {
+    resultado = true;
+  }
+  return resultado;
+});
+
+
+/* Para declarar una función que hace que filtre pokemones
 por su valor de name.
 
 function namePokemons(pokemones) {
@@ -24,14 +60,14 @@ function namePokemons(pokemones) {
   };
 }
 Esta sería una función que se puede aplicar a un array como:
-var mayVar = [array].filter(namePokemons); 
+var mayVar = [array].filter(namePokemons);
 y se guardaría en la variable myVar
 Revisar filtrando objetos pequeños en array.prototype.filter()
  https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/filter
 
 -----------
 
-Si tengo en array por ejemplo 
+Si tengo en array por ejemplo
 pokemon =  [{
   id: 1,
   num: '001',

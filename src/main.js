@@ -5,7 +5,8 @@
  */
 
 import {pokemon} from './data/pokemon/pokemon.js'; //poner el typemodule//
-import {pokemonsByName} from './data.js';
+import {pokemonsByType} from './data.js';
+import {typeStringPokemons} from './data.js';
 
 
 
@@ -19,11 +20,12 @@ import {pokemonsByName} from './data.js';
         document.getElementById("grass").style.display = "block";
         
 
-        let pokemonsNames = pokemonsByName;
+        let resultByType = pokemonsByType;
+        console.log(resultByType);
 
+        document.getElementById("categoryGrass").innerHTML = typeStringPokemons;
 
-        document.getElementById("categoryGrass").innerHTML= pokemonsNames;
-        console.log(pokemonsNames);
+     
     };
 
 
