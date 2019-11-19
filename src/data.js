@@ -2,8 +2,10 @@
 
 // esta es una función de ejemplo
 
-export const gettinggrasstype = (pokemones) => {
-  pokemones.filter((pokemon) => pokemon.name
+import {pokemon} from './data/pokemon/pokemon.js';
 
-  return 'example';
-};
+export const pokemonsByType = pokemon.filter((pokemones) => {
+  if (pokemones.type.indexOf('Poison') !== -1) {
+  return true;
+  }
+});
