@@ -5,7 +5,7 @@
 import { pokemon } from './data/pokemon/pokemon.js';
 
 /*Lo que hace indexOf es que me da el índice, pero igual retorna -1 cuando un elemento no está y cero
-cuando si está, así que eso lo usé y coloqué que si el strting "Poison" es diferente de -1 regresara true. Nota: yo le 
+cuando si está, así que eso lo usé y coloqué que si el strting "Poison" es diferente de -1 (o sea a no encontrado) regresara true. Nota: yo le 
 tengo que poner que es lo que tiene que regresar.
 Es probable que funcione porque sólo tengo un tipo fuego en cada uno de los objetos, ya que indexOf solo
 regresa el primer index en el que el elemento puede ser encontrado */
