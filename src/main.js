@@ -4,10 +4,10 @@
  * import POTTER from './data/potter/potter.js'
  */
 
+
 import { pokemon } from './data/pokemon/pokemon.js'; //poner el typemodule//
 import { pokemonsByType } from './data.js';
 import { typeStringPokemons } from './data.js';
-
 
 
 
@@ -37,12 +37,3 @@ function screenGrass() {
         let currentDivName = document.getElementById('imgTestDiv');
         document.body.insertBefore(contentNameDiv, currentDivName);
 };
-
-
-
-
-/*
- * console.log(POKEMON);
- * console.log(LoL);
- * console.log(POTTER)
-*/

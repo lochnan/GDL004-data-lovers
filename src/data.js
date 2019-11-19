@@ -2,6 +2,7 @@
 // esta es una función de ejemplo
 
 
+
 import { pokemon } from './data/pokemon/pokemon.js';
 
 /*Lo que hace indexOf es que me da el índice, pero igual retorna -1 cuando un elemento no está y cero
