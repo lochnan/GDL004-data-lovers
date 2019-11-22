@@ -2,7 +2,6 @@
 // esta es una función de ejemplo
 
 
-
 import { pokemon } from './data/pokemon/pokemon.js';
 
 /*Lo que hace indexOf es que me da el índice, pero igual retorna -1 cuando un elemento no está y cero
@@ -12,18 +11,16 @@ Es probable que funcione porque sólo tengo un tipo fuego en cada uno de los obj
 regresa el primer index en el que el elemento puede ser encontrado */
 
 export const pokemonsByType = pokemon.filter((pokemones) => {
-  if (pokemones.type.indexOf('Poison') !== -1) {
+  if (pokemones.type.indexOf('Grass') !== -1) {
     return true;
   }
 });
 
 
-export const typeStringPokemons = pokemonsByType.map(poison => `${poison.name}`);
+export const typeStringPokemons = pokemonsByType.map(grass => `${grass.name}`);
 
 
-
-
-
+ 
 
 /* ----- NOTAS ----- /*
 
