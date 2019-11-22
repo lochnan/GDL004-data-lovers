@@ -10,16 +10,18 @@ tengo que poner que es lo que tiene que regresar.
 Es probable que funcione porque sólo tengo un tipo fuego en cada uno de los objetos, ya que indexOf solo
 regresa el primer index en el que el elemento puede ser encontrado */
 
-export const pokemonsByType = pokemon.filter((pokemones) => {
-  if (pokemones.type.indexOf('Grass') !== -1) {
-    return true;
-  }
-});
 
+export const pokemonsByType = (pokemon, e) => {
+  const x = e.target.id;
+  console.log(x);
+  return pokemon.filter((pokemones) => {
+    if (pokemones.type.indexOf(x) !== -1) {
+      return true;
+    }
+  });
+}
 
-export const typeStringPokemons = pokemonsByType.map(grass => `${grass.name}`);
-
- 
+//export const typeStringPokemons = pokemonsByType.map(grass => `${grass.name}`);
 
 /* ----- NOTAS ----- /*
 

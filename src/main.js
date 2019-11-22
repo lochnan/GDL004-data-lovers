@@ -6,39 +6,46 @@
 
 import { pokemon } from './data/pokemon/pokemon.js'; //poner el typemodule//
 import { pokemonsByType } from './data.js';
-import { typeStringPokemons } from './data.js';
+// import { typeStringPokemons } from './data.js';
+
+let resultByType = pokemonsByType;
+console.log(resultByType);
 
 //Botones para abrir las  categorías
 document.getElementById("Bgrass").addEventListener("click", screenGrass);
+document.getElementById("Bpoison").addEventListener("click", screenGrass);
 
-function screenGrass() {
+
+function screenGrass(e) {
     //Haciendo que pase la página otra
     document.getElementById("main").style.display = "none";
     document.getElementById("grass").style.display = "block";
+    console.log(pokemonsByType(pokemon, e));
+
+    const pokemonByType = pokemonsByType(pokemon, e);
 
     /*CreateElment con un for para crear de forma dinámica los links 
     de los pokemones según la categoría de Grass  */
-    for (let i = 0; i < pokemonsByType.length; i++) {
-        let cardDiv = document.createElement('div') 
+
+    for (let i = 0; i < pokemonByType.length; i++) {
+        let cardDiv = document.createElement('div');
         let imgDiv = document.createElement('img');
         let txtDiv = document.createElement('span');
+        let numDiv = document.createElement('span');
         cardDiv.appendChild(imgDiv);
         cardDiv.appendChild(txtDiv);
+        cardDiv.appendChild(numDiv);
 
         imgDiv.setAttribute('class', 'democlass');
-        imgDiv.setAttribute('src', pokemonsByType[i].img);
+        imgDiv.setAttribute('src', pokemonByType[i].img);
         cardDiv.setAttribute('class', 'cardClass');
-        txtDiv.innerHTML = `<p>${pokemonsByType[i].name}</p>`;
-        //txtDiv.setAttribute('value', pokemonsByType[i].name);
+        txtDiv.innerHTML = `<p>${pokemonByType[i].name}</p>`;
+        numDiv.innerHTML = `<p>${pokemonByType[i].num}<p>`;
 
         document.getElementById('categoryGrass').appendChild(cardDiv);
-
-        // Creando un nodo hijo para el texto y asignando como padre a imgDiV
-
     };
 
-    let resultByType = pokemonsByType;
-    console.log(resultByType);
+ 
 
 };
 
