@@ -19,6 +19,7 @@ export const pokemonsByType = pokemon.filter((pokemones) => {
 
 export const typeStringPokemons = pokemonsByType.map(grass => `${grass.name}`);
 
+
  
 
 /* ----- NOTAS ----- /*
