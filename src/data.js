@@ -10,6 +10,7 @@ Nota: yo le tengo que poner que es lo que tiene que regresar.
 Es probable que funcione porque sólo tengo un tipo fuego en cada uno de los objetos, ya que indexOf solo
 regresa el primer index en el que el elemento puede ser encontrado */
 
+// Función para obtener el filtrado por categoría
 
 export const pokemonsByType = (pokemon, x) => {
   return pokemon.filter((pokemones) => {
@@ -19,6 +20,7 @@ export const pokemonsByType = (pokemon, x) => {
   });
 }
 
+// Función para obtener el sort para ordenar de la A a la Z
 
 export const orderABCByType = (pokemonByTypeResult) => {
   return pokemonByTypeResult.sort(function (a,b) {
@@ -43,7 +45,6 @@ export const pokemonsByType = pokemon.filter((pokemones) => {
       return true;
     }
 });
-
 
 export const pokemonsByType = pokemon.filter((pokemones) => {
 

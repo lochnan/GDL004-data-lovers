@@ -13,6 +13,17 @@ document.getElementById("Bgrass").addEventListener("click", screenGrass);
 document.getElementById("Bpoison").addEventListener("click", screenGrass);
 document.getElementById("Bfire").addEventListener("click", screenGrass);
 document.getElementById("Bflying").addEventListener("click", screenGrass);
+document.getElementById("Bwater").addEventListener("click", screenGrass);
+document.getElementById("Bbug").addEventListener("click", screenGrass);
+document.getElementById("Bnormal").addEventListener("click", screenGrass);
+document.getElementById("Belectric").addEventListener("click", screenGrass);
+document.getElementById("Bground").addEventListener("click", screenGrass);
+document.getElementById("Bfighting").addEventListener("click", screenGrass);
+document.getElementById("Bpsychic").addEventListener("click", screenGrass);
+document.getElementById("Brock").addEventListener("click", screenGrass);
+document.getElementById("Bice").addEventListener("click", screenGrass);
+document.getElementById("Bghost").addEventListener("click", screenGrass);
+document.getElementById("Bdragon").addEventListener("click", screenGrass);
 
 
 let resultByType = [];
@@ -27,8 +38,8 @@ function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  quye
     console.log(x); // Me ayuda a ver cual es el id en donde se  está dando el evento  de click
 
     // Obteniendo la data al poner la función pokemonsByType del data.js, la que se obtiene al ponerle sus parámetros
-    const pokemonByTypeResult = pokemonsByType (pokemon, x);
-    /* console.log(pokemonByTypeResult); Aquí muestra que se está obteniendo el valor de lo que hace 
+    const pokemonByTypeResult = pokemonsByType(pokemon, x);
+    /* console.log(pokemonByTypeResult); Aquí muestra que se está obteniendo el valor de lo que hace s
     la función al ponerle los () y se guarda en una constante */
 
     /*CreateElment con un for para crear de forma dinámica los links 
@@ -37,6 +48,7 @@ function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  quye
 
         const template = `<div> 
             <img src= "${ pokemonByTypeResult[i].img}" </img> 
+            <span> ${ pokemonByTypeResult[i].num} </span>
             <span> ${ pokemonByTypeResult[i].name} </span>
         </div>`
 
@@ -45,9 +57,11 @@ function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  quye
         cardDiv.innerHTML = template;
     };
 
-    resultByType = pokemonByTypeResult;
+    resultByType = pokemonByTypeResult; // Para sacar el valor del scope local al scope global
 };
 
+
+// Función para obtener el sort para ordenar de la A a la Z
 
 document.getElementById("order").addEventListener("click", orderAz);
 
@@ -58,13 +72,14 @@ function orderAz() {
 
     let pokemonsTypeByOrder = orderABCByType(resultByType);
 
-    for (let i = 0; i <pokemonsTypeByOrder.length; i++) {
+    for (let i = 0; i < pokemonsTypeByOrder.length; i++) {
 
         const templateOrder = `<div>
         <img src = "${ pokemonsTypeByOrder[i].img}"</img>
+        <span> ${ pokemonsTypeByOrder[i].num} </span>
         <span> ${ pokemonsTypeByOrder[i].name} </span>
         </div>`
-    
+
         let cardDivOrder = document.createElement('div')
         document.getElementById("grassOrder").appendChild(cardDivOrder);
         cardDivOrder.innerHTML = templateOrder;
