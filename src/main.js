@@ -34,6 +34,7 @@ function screenGrass(e) {
         const template = `<div>
             <button id="buttonModal"><img src= "${ pokemonByTypeResult[i].img}"</img></button>
             <span>${ pokemonByTypeResult[i].name}</span>
+            <div class="modal">
         </div>`
 
         let cardDiv = document.createElement('div') 
