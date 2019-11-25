@@ -7,8 +7,13 @@
 import { pokemon } from './data/pokemon/pokemon.js'; //poner el typemodule//
 import { pokemonsByType } from './data.js';
 
-
+let orderResult = [];
 //Botones para abrir las  categorías
+
+
+/*-------------------------- MOSTRAR FILTRADO --------------------------
+----------------------------------------------------------------------*/
+
 document.getElementById("Bgrass").addEventListener("click", screenGrass);
 document.getElementById("Bpoison").addEventListener("click", screenGrass);
 
@@ -19,53 +24,59 @@ function screenGrass(e) {
     document.getElementById("grass").style.display = "block";
 
    // Obteniendo la data al poner la función del data.js pero se obtiene al ponerle sus pará
-    const pokemonByTypeResult = pokemonsByType(pokemon, e);
+    const x = e.target.id;
+    const pokemonByTypeResult = pokemonsByType (pokemon, x);
     console.log(pokemonByTypeResult);
 
     /*CreateElment con un for para crear de forma dinámica los links 
     de los pokemones según la categoría de Grass  */
     for (let i = 0; i < pokemonByTypeResult.length; i++) {
+        const template = `<div>
+            <button id="buttonModal"><img src= "${ pokemonByTypeResult[i].img}"</img></button>
+            <span>${ pokemonByTypeResult[i].name}</span>
+        </div>`
+
         let cardDiv = document.createElement('div') 
-            let imgDiv = document.createElement('img');
-        let txtDiv = document.createElement('span');
-        let numDiv = document.createElement('span');
-        cardDiv.appendChild(imgDiv);
-
-        cardDiv.appendChild(txtDiv);
-        cardDiv.appendChild(numDiv);
-
-        imgDiv.setAttribute('class', 'democlass');
-        imgDiv.setAttribute('src', pokemonByTypeResult[i].img);
-        cardDiv.setAttribute('class', 'cardClass');
-        txtDiv.innerHTML = `<p>${pokemonByTypeResult[i].name}</p>`;
-        numDiv.innerHTML = `<p>${pokemonByTypeResult[i].num}<p>`;
-
         document.getElementById('categoryGrass').appendChild(cardDiv);
+        cardDiv.innerHTML = template;
+
+        orderResult = pokemonByTypeResult; 
 
     };
-
-    return pokemonByTypeResult; 
 };
+
+/*-------------------------- ORDENAR POKEMONES --------------------------
+----------------------------------------------------------------------*/
 
 
 document.getElementById("order").addEventListener("click", orderAz);
 
- function orderAz(pokemonByTypeResult, e) {
-   
-    pokemonByTypeResult.sort(function(a,b) {
-        if (a.name>b.name) {
+ function orderAz() {
+
+    document.getElementById("grass").style.display = "none";
+    document.getElementById("pokemonsOrder").style.display = "block";
+
+    console.log(orderResult);
+    orderResult.sort(function(a,b) {
+        if (a.name > b.name) {
         return 1;
-        }else if(a.name < b.name){
+        }else if(a.name < b.name) {
             return -1;
         }else{
             return 0;
         }
-
     });
 
-}
-
-
+    for (let i2 = 0; i2 < orderResult.length; i2++) {
+         const templateOrder = `<div>
+            <img src= "${ orderResult[i2].img}"</img>
+            <span>${ orderResult[i2].name}</span>
+        </div>`
+    let cardDivOrder = document.createElement('div') 
+    document.getElementById('categoryPokemonsOrder').appendChild(cardDivOrder);
+    cardDivOrder.innerHTML = templateOrder;
+    };
+ };
 
 
 /*

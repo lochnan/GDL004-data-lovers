@@ -11,9 +11,7 @@ Es probable que funcione porque sólo tengo un tipo fuego en cada uno de los obj
 regresa el primer index en el que el elemento puede ser encontrado */
 
 
-export const pokemonsByType = (pokemon, e) => {
-  const x = e.target.id;
-  console.log(x);
+export const pokemonsByType = (pokemon, x) => {
   return pokemon.filter((pokemones) => {
     if (pokemones.type.indexOf(x) !== -1) {
       return true;
@@ -21,6 +19,19 @@ export const pokemonsByType = (pokemon, e) => {
   });
 }
 
+
+
+
+
+
+/*
+var array_of_arrays = [[1, 2], [3, 4], [5, 6]];
+var concatenated = array_of_arrays.reduce( function (previous, current) {
+        return previous.concat(current);
+});
+*/
+
+/*arr.reduce(callback(acumulador, valorActual[, índice[, array]])[, valorInicial])*/
 
  
 
