@@ -6,8 +6,8 @@
 
 import { pokemon } from './data/pokemon/pokemon.js'; //poner el typemodule//
 import { pokemonsByType } from './data.js';
+import { orderABCByType } from './data.js';
 
-let orderResult = [];
 //Botones para abrir las  categorías
 
 
@@ -16,87 +16,110 @@ let orderResult = [];
 
 document.getElementById("Bgrass").addEventListener("click", screenGrass);
 document.getElementById("Bpoison").addEventListener("click", screenGrass);
+document.getElementById("Bfire").addEventListener("click", screenGrass);
+document.getElementById("Bflying").addEventListener("click", screenGrass);
+document.getElementById("Bwater").addEventListener("click", screenGrass);
+document.getElementById("Bbug").addEventListener("click", screenGrass);
+document.getElementById("Bnormal").addEventListener("click", screenGrass);
+document.getElementById("Belectric").addEventListener("click", screenGrass);
+document.getElementById("Bground").addEventListener("click", screenGrass);
+document.getElementById("Bfighting").addEventListener("click", screenGrass);
+document.getElementById("Bpsychic").addEventListener("click", screenGrass);
+document.getElementById("Brock").addEventListener("click", screenGrass);
+document.getElementById("Bice").addEventListener("click", screenGrass);
+document.getElementById("Bghost").addEventListener("click", screenGrass);
+document.getElementById("Bdragon").addEventListener("click", screenGrass);
 
 
-function screenGrass(e) {
+let resultByType = [];
+
+function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  quye necesita la función para poder
+    ejecutar el addEventListener */
     //Haciendo que pase la página otra
     document.getElementById("main").style.display = "none";
     document.getElementById("grass").style.display = "block";
 
-   // Obteniendo la data al poner la función del data.js pero se obtiene al ponerle sus pará
+  
     const x = e.target.id;
-    const pokemonByTypeResult = pokemonsByType (pokemon, x);
-    console.log(pokemonByTypeResult);
+    console.log(x); // Me ayuda a ver cual es el id en donde se  está dando el evento  de click
+
+    // Obteniendo la data al poner la función pokemonsByType del data.js, la que se obtiene al ponerle sus parámetros
+    const pokemonByTypeResult = pokemonsByType(pokemon, x);
+    /* console.log(pokemonByTypeResult); Aquí muestra que se está obteniendo el valor de lo que hace s
+    la función al ponerle los () y se guarda en una constante */
 
     /*CreateElment con un for para crear de forma dinámica los links 
-    de los pokemones según la categoría de Grass  */
+    de los pokemones según la categoría */
     for (let i = 0; i < pokemonByTypeResult.length; i++) {
-        const template = `<div>
-            <button id="buttonModal"><img src= "${ pokemonByTypeResult[i].img}"</img></button>
-            <span>${ pokemonByTypeResult[i].name}</span>
+
+        const template = `<div> 
+            <img src= "${ pokemonByTypeResult[i].img}" </img> 
+            <span> ${ pokemonByTypeResult[i].num} </span>
+            <span> ${ pokemonByTypeResult[i].name} </span>
         </div>`
 
-        let cardDiv = document.createElement('div') 
-        document.getElementById('categoryGrass').appendChild(cardDiv);
+        let cardDiv = document.createElement('div');
+        document.getElementById("categoryGrass").appendChild(cardDiv);
         cardDiv.innerHTML = template;
-
-        orderResult = pokemonByTypeResult; 
-
     };
+
+    resultByType = pokemonByTypeResult; // Para sacar el valor del scope local al scope global
 };
 
 /*-------------------------- ORDENAR POKEMONES --------------------------
 ----------------------------------------------------------------------*/
 
 
+// Función para obtener el sort para ordenar de la A a la Z
+
 document.getElementById("order").addEventListener("click", orderAz);
 
- function orderAz() {
+function orderAz() {
 
-    document.getElementById("grass").style.display = "none";
-    document.getElementById("pokemonsOrder").style.display = "block";
+    document.getElementById("categoryGrass").style.display = "none";
+    document.getElementById("grassOrder").style.display = "block";
 
-    console.log(orderResult);
-    orderResult.sort(function(a,b) {
-        if (a.name > b.name) {
-        return 1;
-        }else if(a.name < b.name) {
-            return -1;
-        }else{
-            return 0;
-        }
-    });
+    let pokemonsTypeByOrder = orderABCByType(resultByType);
 
-    for (let i2 = 0; i2 < orderResult.length; i2++) {
-         const templateOrder = `<div>
-            <img src= "${ orderResult[i2].img}"</img>
-            <span>${ orderResult[i2].name}</span>
+    for (let i = 0; i < pokemonsTypeByOrder.length; i++) {
+
+        const templateOrder = `<div>
+        <img src = "${ pokemonsTypeByOrder[i].img}"</img>
+        <span> ${ pokemonsTypeByOrder[i].num} </span>
+        <span> ${ pokemonsTypeByOrder[i].name} </span>
         </div>`
-    let cardDivOrder = document.createElement('div') 
-    document.getElementById('categoryPokemonsOrder').appendChild(cardDivOrder);
-    cardDivOrder.innerHTML = templateOrder;
+
+        let cardDivOrder = document.createElement('div')
+        document.getElementById("grassOrder").appendChild(cardDivOrder);
+        cardDivOrder.innerHTML = templateOrder;
     };
- };
 
+};
+
+/*CreateElment con un for para crear de forma dinámica los links
+de los pokemones según la categoría de Grass
+for (let i = 0; i < pokemonByTypeResult.length; i++) {
+    let cardDiv = document.createElement('div');
+    let imgDiv = document.createElement('img');
+    let txtDiv = document.createElement('span');
+    let numDiv = document.createElement('span');
+    cardDiv.appendChild(imgDiv);
+
+    cardDiv.appendChild(txtDiv);
+    cardDiv.appendChild(numDiv);
+
+    imgDiv.setAttribute('class', 'democlass');
+    imgDiv.setAttribute('src', pokemonByTypeResult[i].img);
+    cardDiv.setAttribute('class', 'cardClass');
+    txtDiv.innerHTML = `<p>${pokemonByTypeResult[i].name}</p>`;
+    numDiv.innerHTML = `<p>${pokemonByTypeResult[i].num}<p>`;
+
+    document.getElementById('categoryGrass').appendChild(cardDiv);
+
+};
+*/
 
 /*
-document.getElementById("order").addEventListener("click", orderAB);
-
-function orderAB() {
-    resultByType.sort((a,b) => 
-    a.nombre > b.nombre() ? 1:
-    a.nombre < b.nombre() ? -1:
-    0
-    );
-    console.log(resultByType);
-
-};*/
-
-
-//cardDiv.sort((a,b) => (a.nombre.localeCompare(b.nombre)));
-
-/*
-
 const orderPokemons = pokemonsByType;
     orderPokemons.sort((a,b) => a.nombre.localeCompare(b.nombre));
     //orderPokemons.sort((a,b) => a.localeCompare(b));
@@ -110,10 +133,7 @@ const orderPokemons = pokemonsByType;
     //    console.log(cardDiv);
     //}
 
-
-
-
-        // Creando un elemento en el DOM para las imágenes.
+// Creando un elemento en el DOM para las imágenes.
 /*
 let imgTestDiv = document.createElement('img');
 imgTestDiv.src = 'http://www.serebii.net/pokemongo/pokemon/060.png';
@@ -128,8 +148,3 @@ document.body.insertBefore(contentNameDiv, currentDivName);
 */
 
  // Creando un elemento en el DOM para las imágenes.
-
-
-
-
-
