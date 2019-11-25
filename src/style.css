@@ -194,7 +194,10 @@ body{
 }
 
 
-
+#buttonModal{
+    background-color:transparent;
+    border: transparent;
+}
 
 #grass{
     display: none;
@@ -249,5 +252,9 @@ body{
 }
 
 #ghost{
+    display: none;
+}
+
+#pokemonsOrder{
     display: none;
 }

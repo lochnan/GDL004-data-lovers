@@ -9,6 +9,11 @@ import { pokemonsByType } from './data.js';
 import { orderABCByType } from './data.js';
 
 //Botones para abrir las  categorías
+
+
+/*-------------------------- MOSTRAR FILTRADO --------------------------
+----------------------------------------------------------------------*/
+
 document.getElementById("Bgrass").addEventListener("click", screenGrass);
 document.getElementById("Bpoison").addEventListener("click", screenGrass);
 document.getElementById("Bfire").addEventListener("click", screenGrass);
@@ -34,6 +39,7 @@ function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  quye
     document.getElementById("main").style.display = "none";
     document.getElementById("grass").style.display = "block";
 
+  
     const x = e.target.id;
     console.log(x); // Me ayuda a ver cual es el id en donde se  está dando el evento  de click
 
@@ -59,6 +65,9 @@ function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  quye
 
     resultByType = pokemonByTypeResult; // Para sacar el valor del scope local al scope global
 };
+
+/*-------------------------- ORDENAR POKEMONES --------------------------
+----------------------------------------------------------------------*/
 
 
 // Función para obtener el sort para ordenar de la A a la Z
