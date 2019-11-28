@@ -5,15 +5,23 @@
  */
 
 import { pokemon } from './data/pokemon/pokemon.js'; //poner el typemodule//
-import { pokemonsByType } from './data.js';
-import { orderABCByType } from './data.js';
+import { pokemonsByType, orderABCByType, uniqueClasify } from './data.js';
+
+/*const allClasify = uniqueClasify;
+uniqueClasify.map();
+console.log(mapAllClasify);
+*/
 
 //Botones para abrir las  categorías
-
-
 /*-------------------------- MOSTRAR FILTRADO --------------------------
 ----------------------------------------------------------------------*/
-
+/* Funciona que  cree un array con los nombres de los pekemones debido a que es una propiedad del navegador pero...
+revisar https://stackoverflow.com/questions/25931810/why-is-document-getelementbyid-not-needed 
+const listCategories = [ Grass, Poison, Fire, Flying, Water, Bug, Normal, Electric, Ground, Fighting, Psychic, Rock, Ice, Ghost, Dragon ];
+listCategories.forEach(category => { category.addEventListener("click", screenGrass);
+   console.log(listCategories)
+});
+*/
 document.getElementById("Bgrass").addEventListener("click", screenGrass);
 document.getElementById("Bpoison").addEventListener("click", screenGrass);
 document.getElementById("Bfire").addEventListener("click", screenGrass);
@@ -30,6 +38,8 @@ document.getElementById("Bice").addEventListener("click", screenGrass);
 document.getElementById("Bghost").addEventListener("click", screenGrass);
 document.getElementById("Bdragon").addEventListener("click", screenGrass);
 
+/* Función screenGrass que nos ayuda a pasar de botón y además tiene dentro el e.target, además del template y la creación
+de los divs de forma dinámica */
 
 let resultByType = [];
 
@@ -39,17 +49,19 @@ function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  quye
     document.getElementById("main").style.display = "none";
     document.getElementById("grass").style.display = "block";
 
-  
     const x = e.target.id;
     console.log(x); // Me ayuda a ver cual es el id en donde se  está dando el evento  de click
 
     // Obteniendo la data al poner la función pokemonsByType del data.js, la que se obtiene al ponerle sus parámetros
     const pokemonByTypeResult = pokemonsByType(pokemon, x);
+    // console.log(pokemonByTypeResult);
+
     /* console.log(pokemonByTypeResult); Aquí muestra que se está obteniendo el valor de lo que hace s
     la función al ponerle los () y se guarda en una constante */
 
     /*CreateElment con un for para crear de forma dinámica los links 
     de los pokemones según la categoría */
+    console.log(pokemonByTypeResult)
     for (let i = 0; i < pokemonByTypeResult.length; i++) {
 
         const template = `<div> 
@@ -63,20 +75,21 @@ function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  quye
         cardDiv.innerHTML = template;
     };
 
-    resultByType = pokemonByTypeResult; // Para sacar el valor del scope local al scope global
+    resultByType = pokemonByTypeResult; /* Para sacar el valor del scope local al scope global.  
+    Revisar que afuera de la función se delcara resultByType vacía */
 };
 
 /*-------------------------- ORDENAR POKEMONES --------------------------
 ----------------------------------------------------------------------*/
-
-
 // Función para obtener el sort para ordenar de la A a la Z
 
 document.getElementById("order").addEventListener("click", orderAz);
 
 function orderAz() {
 
+    document.getElementById("grassOrder").innerHTML= "";
     document.getElementById("categoryGrass").style.display = "none";
+    document.getElementById("reverseOrder").style.display = "none";
     document.getElementById("grassOrder").style.display = "block";
 
     let pokemonsTypeByOrder = orderABCByType(resultByType);
@@ -94,7 +107,42 @@ function orderAz() {
         cardDivOrder.innerHTML = templateOrder;
     };
 
+    resultByType = pokemonsTypeByOrder;
+    //return pokemonsTypeByOrder;
 };
+//screenGrass(e);
+//var y = orderAz();
+//console.log(y);
+
+/*-------------------------- ORDENAR POKEMONES AL REVÉS --------------------------
+----------------------------------------------------------------------*/
+document.getElementById("reverseOrderButton").addEventListener("click", orderZa);
+
+
+function orderZa() {
+
+    document.getElementById("reverseOrder").innerHTML= "";
+
+    document.getElementById("categoryGrass").style.display = "none";
+    document.getElementById("grassOrder").style.display = "none";
+    document.getElementById("reverseOrder").style.display = "block";
+
+    let reversed = resultByType.reverse();
+    
+    for (let i = 0; i < reversed.length; i++) {
+
+        const templateReverseOrder = `<div>
+        <img src= "${ reversed[i].img}" </img>
+        <span> ${ reversed[i].num} </span>
+        <span> ${ reversed[i].name} </span>
+        </div>`
+
+        let cardDivRevOrd = document.createElement('div')
+        document.getElementById("reverseOrder").appendChild(cardDivRevOrd);
+        cardDivRevOrd.innerHTML = templateReverseOrder;
+    };
+};
+
 
 /*CreateElment con un for para crear de forma dinámica los links
 de los pokemones según la categoría de Grass
@@ -115,7 +163,6 @@ for (let i = 0; i < pokemonByTypeResult.length; i++) {
     numDiv.innerHTML = `<p>${pokemonByTypeResult[i].num}<p>`;
 
     document.getElementById('categoryGrass').appendChild(cardDiv);
-
 };
 */
 

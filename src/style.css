@@ -255,6 +255,10 @@ body{
     display: none;
 }
 
-#pokemonsOrder{
+#graasOrder{
     display: none;
+}
+
+#reverseOrder{
+    display: none
 }
