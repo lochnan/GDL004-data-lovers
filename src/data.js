@@ -5,11 +5,12 @@
 import { pokemon } from './data/pokemon/pokemon.js';
 
 /*Lo que hace indexOf es que me da el índice, pero igual retorna -1 cuando un elemento no está y cero
-cuando si está, así que eso lo usé y coloqué que si el strting "Poison" es diferente de -1 (o sea a no encontrado) regresara true. Nota: yo le 
-tengo que poner que es lo que tiene que regresar.
+cuando si está, así que eso lo usé y coloqué que si el strting "Poison" es diferente de -1 (o sea a no encontrado) regresara true.
+Nota: yo le tengo que poner que es lo que tiene que regresar.
 Es probable que funcione porque sólo tengo un tipo fuego en cada uno de los objetos, ya que indexOf solo
 regresa el primer index en el que el elemento puede ser encontrado */
 
+// Función para obtener el filtrado por categoría
 
 export const pokemonsByType = (pokemon, x) => {
   return pokemon.filter((pokemones) => {
@@ -19,21 +20,31 @@ export const pokemonsByType = (pokemon, x) => {
   });
 }
 
+// Función para obtener el sort para ordenar de la A a la Z
 
-
-
-
-
-/*
-var array_of_arrays = [[1, 2], [3, 4], [5, 6]];
-var concatenated = array_of_arrays.reduce( function (previous, current) {
-        return previous.concat(current);
+export const orderABCByType = (pokemonByTypeResult) => {
+  return pokemonByTypeResult.sort(function (a,b) {
+    if (a.name > b.name) {
+        return 1;
+    } else if (a.name < b.name) {
+        return -1;
+    } else {
+        return 0;
+    }
 });
-*/
+}
 
-/*arr.reduce(callback(acumulador, valorActual[, índice[, array]])[, valorInicial])*/
 
- 
+// Función para obtener el filtrado de cada pokemon
+
+export const pokemonsModal = (pokemon, m) => {
+  return pokemon.filter((pokemonesM) => {
+    if (pokemonesM.name.indexOf(m) !== -1) {
+      return true;
+    }
+  });
+}
+
 
 /* ----- NOTAS ----- /*
 
@@ -42,7 +53,6 @@ export const pokemonsByType = pokemon.filter((pokemones) => {
       return true;
     }
 });
-
 
 export const pokemonsByType = pokemon.filter((pokemones) => {
 

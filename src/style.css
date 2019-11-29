@@ -94,6 +94,46 @@ body{
 }
 
 
+/*-------Ventana modal----------
+------------------------------*/
+
+#windowModal{
+    display:none;
+    position: fixed;
+    z-index:1;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(0, 0, 0, 0.25);
+}
+
+
+.contentModal{
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    width: 85%;
+    height: 85%;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
+    margin-top: 15%;
+    animation-name: modal; 
+    animation-duration: 1s;
+}
+
+@keyframes modal{
+    from { scale: -0.20; opacity:0; }
+    to { scale: 0; opacity:1; }
+    }
+
+
+.headerModal{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
 @media all and (min-width:750px) and (max-width:1050px) and (orientation:portrait){
     #mainHead{
@@ -199,62 +239,18 @@ body{
     border: transparent;
 }
 
-#grass{
+
+
+#grass, #poison, #fire, #flaying, #water, #bug, #normal, #electric, #ground, #fighting, #psychic, #rock, #ice, #ghost, #dragon{
     display: none;
 }
 
-#poison{
-    display: none;
-}
-
-#fire{
-    display: none;
-}
-
-#flying{
-    display: none;
-}
-
-#water{
-    display: none;
-}
-
-#bug{
-    display: none;
-}
-
-#normal{
-    display: none;
-}
-
-#electric{
-    display: none;
-}
-
-#ground{
-    display: none;
-}
-
-#fighting{
-    display: none;
-}
-
-#psychic{
-    display: none;
-}
-
-#rock{
-    display: none;
-}
-
-#ice{
-    display: none;
-}
-
-#ghost{
-    display: none;
-}
 
 #pokemonsOrder{
     display: none;
 }
+
+#modal{
+    display:none;
+}
+
