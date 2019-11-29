@@ -49,6 +49,17 @@ export const orderABCByType = (pokemonByTypeResult) => {
 };
 
 
+// Función para obtener el filtrado de cada pokemon
+
+export const pokemonsModal = (pokemon, m) => {
+  return pokemon.filter((pokemonesM) => {
+    if (pokemonesM.name.indexOf(m) !== -1) {
+      return true;
+    }
+  });
+}
+
+
 /* ----- NOTAS ----- /*
 
 export const pokemonsByType = pokemon.filter((pokemones) => {
