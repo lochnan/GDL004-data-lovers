@@ -1,38 +1,52 @@
-/* Manejo de data */
-// esta es una función de ejemplo
-
+/* Manejo de data *
+// esta es una función de ejemplo */
 
 import { pokemon } from './data/pokemon/pokemon.js';
 
+
+// PARA OBTENER UN ARRAY CON LOS NOMBRES DE LAS CATEGORÍAS
+// Haciendo una nueva
+const clasify = [];
+// Obteniendo los tipos de pokemones pero me aparece toda la lista con los tipos repetidos
+const filterCategories = pokemon.filter((pokemones) => {
+  return pokemones.type.forEach((type) => {
+    clasify.push(type)
+  });
+});
+export const uniqueClasify = Array.from(new Set(clasify));
+/* Para obtener un nuevo array sin los elementos repetidos ver página 
+https://medium.com/dailyjs/how-to-remove-array-duplicates-in-es6-5daa8789641c */
+
+/* Otra forma de reducir los elementos repetidos de un array 
+const uniqueSet = new Set(clasify);
+const backtoarray = [...uniqueSet];
+*/
+
+
+// FUNCIÓN para obtener el filtrado por categoría
+export const pokemonsByType = (pokemon, x) => {
+  return pokemon.filter((pokemones) =>
+    pokemones.type.indexOf(x) !== -1
+  );
+};
 /*Lo que hace indexOf es que me da el índice, pero igual retorna -1 cuando un elemento no está y cero
 cuando si está, así que eso lo usé y coloqué que si el strting "Poison" es diferente de -1 (o sea a no encontrado) regresara true.
-Nota: yo le tengo que poner que es lo que tiene que regresar.
 Es probable que funcione porque sólo tengo un tipo fuego en cada uno de los objetos, ya que indexOf solo
 regresa el primer index en el que el elemento puede ser encontrado */
 
-// Función para obtener el filtrado por categoría
-
-export const pokemonsByType = (pokemon, x) => {
-  return pokemon.filter((pokemones) => {
-    if (pokemones.type.indexOf(x) !== -1) {
-      return true;
-    }
-  });
-}
-
-// Función para obtener el sort para ordenar de la A a la Z
+// FUNCIÓN para obtenerv el sort para ordenar de la A a la Z
 
 export const orderABCByType = (pokemonByTypeResult) => {
-  return pokemonByTypeResult.sort(function (a,b) {
+  return pokemonByTypeResult.sort(function (a, b) {
     if (a.name > b.name) {
-        return 1;
+      return 1;
     } else if (a.name < b.name) {
-        return -1;
+      return -1;
     } else {
-        return 0;
+      return 0;
     }
-});
-}
+  });
+};
 
 
 // Función para obtener el filtrado de cada pokemon
@@ -85,11 +99,11 @@ var mayVar = [array].filter(namePokemons);
 y se guardaría en la variable myVar
 Revisar filtrando objetos pequeños en array.prototype.filter()
  https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/filter
+*/
+//-----------
 
------------
 
-Si tengo en array por ejemplo
-pokemon =  [{
+/*pokemon =  [{
   id: 1,
   num: '001',
   name: 'Bulbasaur',
@@ -155,7 +169,10 @@ pokemon =  [{
     num: '003',
     name: 'Venusaur',
   }]
+}]
+*/
 
+/*
 A este le puedo aplicar, que es la sintaxis del método filter.prototype
 pokemon.filter(pokemones => {
   return pokemones.name == "Ivysaur"";
@@ -168,8 +185,9 @@ length: 1
 */
 
 
-/* Manejo de data */
+/* Manejo de data
 // esta es una función de ejemplo
 //export const example = () => {
 //return 'example';
-//};
+//}};
+*/
