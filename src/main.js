@@ -22,6 +22,7 @@ listCategories.forEach(category => { category.addEventListener("click", screenGr
    console.log(listCategories)
 });
 */
+
 document.getElementById("Bgrass").addEventListener("click", screenGrass);
 document.getElementById("Bpoison").addEventListener("click", screenGrass);
 document.getElementById("Bfire").addEventListener("click", screenGrass);
@@ -64,20 +65,40 @@ function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  quye
     console.log(pokemonByTypeResult)
     for (let i = 0; i < pokemonByTypeResult.length; i++) {
 
-        const template = `<div> 
-            <img src= "${ pokemonByTypeResult[i].img}" </img> 
+        const template = `<div class="prueba"> 
+            <a href="#windowModal" class="buttonModal"><img class="buttonModal" src= ${ pokemonByTypeResult[i].img}></img></a>
             <span> ${ pokemonByTypeResult[i].num} </span>
             <span> ${ pokemonByTypeResult[i].name} </span>
         </div>`
-
+        
+        
         let cardDiv = document.createElement('div');
         document.getElementById("categoryGrass").appendChild(cardDiv);
         cardDiv.innerHTML = template;
     };
+    
+    resultByType = pokemonByTypeResult; // Para sacar el valor del scope local al scope global
+    document.querySelector('.prueba').addEventListener('click', (e) => console.log(e.currentTarget));
 
-    resultByType = pokemonByTypeResult; /* Para sacar el valor del scope local al scope global.  
-    Revisar que afuera de la función se delcara resultByType vacía */
 };
+
+
+
+/*--------------------------- VENTANA MODAL --------------------------
+----------------------------------------------------------------------*/
+/*
+
+const buttonModal = document.querySelectorAll(".buttonModal");
+ buttonModal.forEach(function(showModal){
+    showModal.onclick = function(){
+        console.log('asdasdas')
+    };
+        document.querySelector('.prueba').style.display="block";
+        
+});*/
+
+
+
 
 /*-------------------------- ORDENAR POKEMONES --------------------------
 ----------------------------------------------------------------------*/
@@ -144,6 +165,19 @@ function orderZa() {
 };
 
 
+/*
+document.getElementById("buttonModal").addEventListener("click", modalWindow);
+document.getElementById("closeModal").addEventListener("click", closeModal);
+
+function modalWindow() {
+        modal.style.display="block";
+};
+
+function closeModal() {
+    modal.style.display="none";
+
+};*/
+
 /*CreateElment con un for para crear de forma dinámica los links
 de los pokemones según la categoría de Grass
 for (let i = 0; i < pokemonByTypeResult.length; i++) {
@@ -162,36 +196,7 @@ for (let i = 0; i < pokemonByTypeResult.length; i++) {
     txtDiv.innerHTML = `<p>${pokemonByTypeResult[i].name}</p>`;
     numDiv.innerHTML = `<p>${pokemonByTypeResult[i].num}<p>`;
 
-    document.getElementById('categoryGrass').appendChild(cardDiv);
-};
-*/
+    document.getElementById('categoryGrass').appendChild(cardDiv);*/
 
-/*
-const orderPokemons = pokemonsByType;
-    orderPokemons.sort((a,b) => a.nombre.localeCompare(b.nombre));
-    //orderPokemons.sort((a,b) => a.localeCompare(b));
-    console.log(orderPokemons);
 
-*/
-//document.getElementById("textDiv").innerHTML = cardDiv;
 
-//cardDiv.sort(function(a,b));
-  //  if (a.name> babel.name); {
-    //    console.log(cardDiv);
-    //}
-
-// Creando un elemento en el DOM para las imágenes.
-/*
-let imgTestDiv = document.createElement('img');
-imgTestDiv.src = 'http://www.serebii.net/pokemongo/pokemon/060.png';
-document.getElementById('categoryGrass').appendChild(imgTestDiv);
-
-let contentNameDiv = document.createElement("div");
-let contentName = document.createTextNode("Aquí va el nombre del pokemon");
-contentNameDiv.appendChild(contentName);
-// añadiendo al elmento creado y su contenido al DOM Revisar https://developer.mozilla.org/es/docs/Web/API/Document/createElement
-let currentDivName = document.getElementById('imgTestDiv');
-document.body.insertBefore(contentNameDiv, currentDivName);
-*/
-
- // Creando un elemento en el DOM para las imágenes.
