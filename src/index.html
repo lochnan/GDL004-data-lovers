@@ -7,10 +7,26 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <link rel="stylesheet" href="style.css" />
+      <style>
+            @import url('https://fonts.googleapis.com/css?family=Economica&display=swap');
+            @import url('https://fonts.googleapis.com/css?family=News+Cycle&display=swap');
+      </style>
 </head>
 
 <body>
       <div id="root"></div>
+
+
+      <div id= "welcome">
+            <div id= "picWel">
+                  <img class="imageWelcome" src="img/AshPikachu.png">
+            </div>
+            <div id= "txtWelcome">
+                  <p>¿Te has puesto nostálgico sobre tu infancia? ¡Es muy probable que por eso llegaras aquí!
+                  Vamos a recordar sobre tus pokemones favoritos</p>
+                  <button id=welcomeButton>Adelante!</button>
+            </div>
+      </div>
 
       <!-- Pantalla de todas las categorias-->
       <div id="main">
@@ -20,9 +36,6 @@
 
             <section id="texto1">
                   <article>
-                        <p>¿Te has puesto nostálgico sobre tu infancia? ¡Es muy probable que por eso llegaras aquí!
-                              Vamos a recordar sobre tus pokemones favoritos</p>
-                        <br/>
                         <p>Entra a alguna de las categorías de pokemon ¡y que vengan los recuerdo!</p>
                   </article>
             </section>
@@ -117,13 +130,19 @@
       <!-- Pantalla de categorías  -->
       <div id="grass">
             <header id="grasshead">
-                  <h2>POKEMON</h2>
+                <a href="#main" id="prueba">  <img src="/img/Pokemon_logo.png" class="headerLogo"></a>
             </header>
             
             <section id="contentGrass">
                   <nav id="mainMenuGrass">
-                        <button id="order">Ordenar AZ</button>
-                        <button id="reverseOrderButton"> Ordenar ZA</button>
+                        <div class="buttonsMenu">
+                              <img class="iconPokebola" src="img/pokeball.png">
+                              <button class="botonUno" id="order">Ordenar AZ</button>
+                        </div>
+                        <div class="buttonsMenu">
+                              <img class="iconPokebola" src="img/pokeball.png">
+                              <button class="botonUno" id="reverseOrderButton"> Ordenar ZA</button>
+                        </div>
                   </nav>
                   <section id="poketypeGrass">
                   </section>

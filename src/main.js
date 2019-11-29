@@ -41,6 +41,24 @@ document.getElementById("Bdragon").addEventListener("click", screenGrass);
 /* Función screenGrass que nos ayuda a pasar de botón y además tiene dentro el e.target, además del template y la creación
 de los divs de forma dinámica */
 
+document.getElementById("welcomeButton").addEventListener("click", welcomeToYou);
+
+function welcomeToYou() {
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("main").style.display = "block";
+}
+
+// Pasar de página de pokemones filtrados a página principal de categorías
+
+document.getElementById("grasshead").addEventListener("click", home);
+
+function home() {
+    document.getElementById("grass").style.display = "none";
+    document.getElementById("main").style.display = "block";
+
+}
+
+
 let resultByType = [];
 
 function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  quye necesita la función para poder

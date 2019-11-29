@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+a{
+text-decoration:none;
+}
+
 
 .democlass {
     margin: 1.5%;
@@ -18,15 +22,40 @@
 }
 
 body{
-    font-family: sans-serif;
-    background-color:#FFD622;   
+    font-family: 'News Cycle', sans-serif;
+    background-color:#ffe575;  
+}
+
+#welcome{
+    width: 100%;
+    height: 640px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.imageWelcome{
+    width: 110%;
+}
+
+#picWel{
+    width: 60%;
+}
+
+#txtWelcome{
+    width: 40%;
+    height: 48%;
+    font-size: 13px;
+    margin-right: 4%;
 }
 
 #main{
     width: 100%;
     max-width: 1170px;
     margin: auto;
-    display: block;
+    display: none;
+    font-family: 'News Cycle', sans-serif;
+    font-size: 14px;
 }
 
 #mainHead{
@@ -43,7 +72,7 @@ body{
     width: 35%;
     height: 80px;
     float: right;
-    font-size: 8px;
+    font-size: 12px;
     padding:20px;
     padding-bottom: 10px;
     padding-top: 10px;
@@ -102,7 +131,8 @@ body{
 
     #texto1{
         height: 180px;
-        font-size: 18px;
+        font-size: 20px;
+
     }
     
     #espacio{
@@ -201,63 +231,68 @@ body{
 
 #grass{
     display: none;
+    border-radius:10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-#poison{
-    display: none;
+#grasshead{
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#fire{
-    display: none;
+.headerLogo{
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#flying{
-    display: none;
+#prueba{
+    display: flex;
+    justify-content: center;
+
 }
 
-#water{
-    display: none;
+#mainMenuGrass{
+width:50%;
+height: 110px;
+display: flex;
+flex-direction: column;
+align-items: center;
+
 }
 
-#bug{
-    display: none;
+.buttonsMenu{
+    width: 70%;
+    height: 35px;
+    font-family: 'Economica', sans-serif;
+    font-size: 14px;
+    margin:2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
 }
 
-#normal{
-    display: none;
+.iconPokebola{
+    width: 25px;
+    height: 25px;
 }
 
-#electric{
-    display: none;
-}
-
-#ground{
-    display: none;
-}
-
-#fighting{
-    display: none;
-}
-
-#psychic{
-    display: none;
-}
-
-#rock{
-    display: none;
-}
-
-#ice{
-    display: none;
-}
-
-#ghost{
-    display: none;
+.botonUno{
+    margin-left: 10px;
+    background-color: transparent;
+    border-color: transparent;
+    color: black;
 }
 
 #graasOrder{
     display: none;
 }
+
 
 #reverseOrder{
     display: none
