@@ -104,8 +104,12 @@ function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  quye
 
 /*--------------------------- VENTANA MODAL --------------------------
 ----------------------------------------------------------------------*/
-/*
+/*window.onload=function showModal(){
+    document.getElementsByClassName("buttonModal").style.display="block";
 
+}*/
+
+/*
 const buttonModal = document.querySelectorAll(".buttonModal");
  buttonModal.forEach(function(showModal){
     showModal.onclick = function(){
@@ -113,8 +117,8 @@ const buttonModal = document.querySelectorAll(".buttonModal");
     };
         document.querySelector('.prueba').style.display="block";
         
-});*/
-
+});
+*/
 
 
 
