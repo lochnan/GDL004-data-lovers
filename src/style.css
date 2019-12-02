@@ -168,6 +168,7 @@ body{
     padding: 10px;
     padding-bottom: 5px;
     display: block;
+    transition-duration: 1s;
 }
 
 .img:hover{
@@ -509,6 +510,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition-duration: 1s;
+}
+
+.headerLogo:hover{
+    transform: scale(1.3);
 }
 
 /*
