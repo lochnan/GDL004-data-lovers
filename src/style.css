@@ -23,31 +23,85 @@ text-decoration:none;
 
 body{
     font-family: 'News Cycle', sans-serif;
-    background-color:#ffe575;  
+    background-color:#ffe575; 
 }
+
+/*PANTALLA DE BIENVENIDA*/
 
 #welcome{
     width: 100%;
-    height: 640px;
     display:flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    margin: auto;
 }
 
-.imageWelcome{
-    width: 110%;
+#headerWelcome{
+    width: 100%;
+}
+
+#logoHead{
+    width: 60%;
+    display: flex;
+    margin: auto;
+    margin-top: 10%;
 }
 
 #picWel{
-    width: 60%;
+    width:100%;
+}
+
+.imageWelcome{
+    width: 40%;
+    display: flex;
+    margin: auto;
+    margin-top: 15%;
+}
+
+#contentTex{
+    background-color:rgba(255, 255, 255, 0.5);
+    border-radius: 3%;
+    border-style: solid;
+    border-color: white;
+    border-width: 5px;
+    padding: 10%;
+    margin: 3%;
+    margin-top: 0%;
 }
 
 #txtWelcome{
-    width: 40%;
-    height: 48%;
-    font-size: 13px;
-    margin-right: 4%;
+    width: 80%;
+    font-size: 16px;
+    margin: auto;
+    text-align: justify;
+    line-height: 18px;
 }
+
+#welcomeButton{
+    width: 50%;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+
+.welcomeImageButton{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    margin: auto;
+    margin-top: 12%;
+    transition-duration: 1s;
+}
+
+.welcomeImageButton:hover{
+    transform: rotate(180deg);
+}
+
+.textWelcomeButton{
+    font-size: 21px;
+    text-align: center;
+}
+
+/*PANTALLA DE CATEGORIAS*/
 
 #main{
     width: 100%;
@@ -59,42 +113,41 @@ body{
 }
 
 #mainHead{
-    width: 100%;
-    height: 70px;
+    width   : 100%;
+    height: 90px;
 }
 
 #logo{
     width: 40%;
-    padding: 15px;
+    padding: 5%;
 }
 
 #texto1{
-    width: 35%;
+    width: 45%;
     height: 80px;
     float: right;
-    font-size: 12px;
+    font-size: 16px;
     padding:20px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
     text-align: justify;
+    line-height: 21px;
 }
 
 #espacio{
-    width: 65%;
+    width: 55%;
     height: 100px;
 }
 
 #mainImage{
     width: 100%;
-    height: 100px;
+    height: 40%;
 }
 
 .mainPikachu{
-    height: 80%;
-    padding-top: 20px;
+    width: 50%;
     display: block;
     margin: auto;
-
 }
 
 #categories{
@@ -103,8 +156,11 @@ body{
     flex-wrap: wrap;
     background-color: white;
     margin:auto;
-    padding-bottom: 10px;
     border-radius: 10px; 
+}
+
+.contentBotona{
+    transition-duration: 1s;
 }
 
 .img{
@@ -112,8 +168,12 @@ body{
     padding: 10px;
     padding-bottom: 5px;
     display: block;
-    
 }
+
+.img:hover{
+    transform: scale(1.5);
+}
+
 
 .text{
     padding-top: 0px;  
@@ -163,47 +223,207 @@ body{
     flex-wrap: wrap;
 }
 
-
 @media all and (min-width:750px) and (max-width:1050px) and (orientation:portrait){
-    #mainHead{
-        height: 150px;
-    }
-
-    #texto1{
-        height: 180px;
-        font-size: 20px;
-
+    #logoHead{
+        width: 50%;
+        margin-top: 5%;
     }
     
-    #espacio{
-        height: 200px;
+    .imageWelcome{
+        margin-top: 10%;
     }
+
+    #contentTex{
+        padding: 8%;
+    }
+    
+    #txtWelcome{
+        font-size: 28px;
+        line-height: 30px;
+    }
+    
+    .welcomeImageButton{
+        width: 100px;
+        height: 100px;
+        margin-top: 0%;
+    }
+    
+    .welcomeImageButton:hover{
+        transform: rotate(180deg);
+    }
+    
+    .textWelcomeButton{
+        font-size: 28px;
+    }
+    
+    /*Pantalla de categorias*/
+
+    
+    #mainHead{
+        height: 45%;
+    }
+    
+    #texto1{
+        font-size: 28px;
+        margin:3%;
+        line-height: 30px;
+        margin-top: -3%;
+    }
+    
     
     #mainImage{
-        height: 150px;
+        margin-top: 3%;
     }
-
-    .mainPikachu{
-        height: 85%;
     
-    }
     
     .img{
-        width: 100px;
-        padding: 5px;
-        padding-left: 30px;
-        padding-top: 20px;
-
+        width: 110px;
+        margin: 10%;
+        margin-bottom: 0%;
     }
-
+    
     .text{
-        font-size: 18px;
-        padding-top: 7px;
+        padding-top: 0px;  
+        font-size: 26px;
     }
 }
 
-@media all and (min-width:750px) and (max-width:1050px) and (orientation:landscape){
-   
+@media all and (max-width:749px) and (orientation:landscape){
+    
+#welcome{
+    display:block;
+    column-count: 2;
+}
+
+#headerWelcome{
+    column-span: all;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+#logoHead{
+    width: 25%;
+    margin-top: 0%;
+}
+
+#picWel{
+    width:100%;
+}
+
+.imageWelcome{
+    width: 60%;
+}
+
+#contentTex{
+    width: 70%;;
+    padding: 5%;
+    margin: 3%;
+    margin-left: 10%;
+    margin-top: 15%;
+}
+
+#welcomeButton{
+    width: 40%;
+    column-span: all;
+
+}
+
+.welcomeImageButton{
+    margin-top: 3%;
+    transition-duration: 1s;
+}
+
+.welcomeImageButton:hover{
+    transform: rotate(180deg);
+}
+
+.textWelcomeButton{
+    font-size: 21px;
+    text-align: center;
+}
+
+/*PANTALLA DE CATEGORIAS*/
+
+#main{
+    width: 100%;
+    max-width: 1170px;
+    margin: auto;
+    display: none;
+    font-family: 'News Cycle', sans-serif;
+    font-size: 14px;
+}
+
+#mainHead{
+    width   : 100%;
+    height: 90px;
+}
+
+#logo{
+    width: 40%;
+    padding: 5%;
+}
+
+#texto1{
+    width: 45%;
+    height: 80px;
+    float: right;
+    font-size: 16px;
+    padding:20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-align: justify;
+    line-height: 21px;
+}
+
+#espacio{
+    width: 55%;
+    height: 100px;
+}
+
+#mainImage{
+    width: 100%;
+    height: 40%;
+}
+
+.mainPikachu{
+    width: 50%;
+    display: block;
+    margin: auto;
+}
+
+#categories{
+    width: 90%;
+    display:flex;
+    flex-wrap: wrap;
+    background-color: white;
+    margin:auto;
+    border-radius: 10px; 
+}
+
+.contentBotona{
+    transition-duration: 1s;
+}
+
+.img{
+    width: 60px;
+    padding: 10px;
+    padding-bottom: 5px;
+    display: block;
+}
+
+.img:hover{
+    transform: scale(1.5);
+}
+
+
+.text{
+    padding-top: 0px;  
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/*******************/
     #mainHead{
         height: 200px;
     }
