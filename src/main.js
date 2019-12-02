@@ -8,11 +8,13 @@ import { pokemon } from './data/pokemon/pokemon.js'; //poner el typemodule//
 import { pokemonsByType, orderABCByType, uniqueClasify } from './data.js';
 
 /*const allClasify = uniqueClasify;
-uniqueClasify.map();
-console.log(mapAllClasify);
+console.log(allClasify);
+
+allClasify.forEach(categoryName => {
+    template 
+});
 */
 
-//Botones para abrir las  categorías
 /*-------------------------- MOSTRAR FILTRADO --------------------------
 ----------------------------------------------------------------------*/
 /* Funciona que  cree un array con los nombres de los pekemones debido a que es una propiedad del navegador pero...
@@ -23,6 +25,7 @@ listCategories.forEach(category => { category.addEventListener("click", screenGr
 });
 */
 
+//Botones para abrir las  categorías
 document.getElementById("Bgrass").addEventListener("click", screenGrass);
 document.getElementById("Bpoison").addEventListener("click", screenGrass);
 document.getElementById("Bfire").addEventListener("click", screenGrass);
@@ -49,14 +52,16 @@ function welcomeToYou() {
     document.getElementById("main").style.display = "block";
 }
 
-// Pasar de página de pokemones filtrados a página principal de categorías
+// Regresar de página de pokemones filtrados a página principal de categorías
 
 document.getElementById("grasshead").addEventListener("click", home);
 
 function home() {
+    document.getElementById("categoryGrass").innerHTML = "";
     document.getElementById("grass").style.display = "none";
+    document.getElementById("reverseOrder").style.display = "none";
+    document.getElementById("grassOrder").style.display = "none";
     document.getElementById("main").style.display = "block";
-
 }
 
 
@@ -65,8 +70,12 @@ let resultByType = [];
 function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  quye necesita la función para poder
     ejecutar el addEventListener */
     //Haciendo que pase la página otra
+
     document.getElementById("main").style.display = "none";
+    document.getElementById("reverseOrder").style.display = "none";
+    document.getElementById("grassOrder").style.display = "none";
     document.getElementById("grass").style.display = "block";
+    document.getElementById("categoryGrass").style.display = "block";
 
     const x = e.target.id;
     console.log(x); // Me ayuda a ver cual es el id en donde se  está dando el evento  de click
@@ -81,26 +90,25 @@ function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  quye
     /*CreateElment con un for para crear de forma dinámica los links 
     de los pokemones según la categoría */
     console.log(pokemonByTypeResult)
+
     for (let i = 0; i < pokemonByTypeResult.length; i++) {
 
-        const template = `<div class="prueba"> 
-            <a href="#windowModal" class="buttonModal"><img class="buttonModal" src= ${ pokemonByTypeResult[i].img}></img></a>
-            <span> ${ pokemonByTypeResult[i].num} </span>
-            <span> ${ pokemonByTypeResult[i].name} </span>
-        </div>`
-        
+        const template = `
+             <div class= "numCard"> <span> ${ pokemonByTypeResult[i].num} </span> </div>   
+             <div class="imgCard"> <a href="#windowModal" class="buttonModal"><img class="buttonModal" src= ${ pokemonByTypeResult[i].img}></a> </div> 
+             <div class="txtCard"> <span> ${ pokemonByTypeResult[i].name} </span> </div>
+        `
         
         let cardDiv = document.createElement('div');
         document.getElementById("categoryGrass").appendChild(cardDiv);
+        cardDiv.setAttribute("class", "containerDiv");
         cardDiv.innerHTML = template;
     };
     
     resultByType = pokemonByTypeResult; // Para sacar el valor del scope local al scope global
-    document.querySelector('.prueba').addEventListener('click', (e) => console.log(e.currentTarget));
+    //document.querySelector('.prueba').addEventListener('click', (e) => console.log(e.currentTarget));
 
 };
-
-
 
 /*--------------------------- VENTANA MODAL --------------------------
 ----------------------------------------------------------------------*/
@@ -114,10 +122,6 @@ const buttonModal = document.querySelectorAll(".buttonModal");
         document.querySelector('.prueba').style.display="block";
         
 });*/
-
-
-
-
 /*-------------------------- ORDENAR POKEMONES --------------------------
 ----------------------------------------------------------------------*/
 // Función para obtener el sort para ordenar de la A a la Z
@@ -127,6 +131,7 @@ document.getElementById("order").addEventListener("click", orderAz);
 function orderAz() {
 
     document.getElementById("grassOrder").innerHTML= "";
+    
     document.getElementById("categoryGrass").style.display = "none";
     document.getElementById("reverseOrder").style.display = "none";
     document.getElementById("grassOrder").style.display = "block";
@@ -135,14 +140,15 @@ function orderAz() {
 
     for (let i = 0; i < pokemonsTypeByOrder.length; i++) {
 
-        const templateOrder = `<div>
-        <img src = "${ pokemonsTypeByOrder[i].img}"</img>
-        <span> ${ pokemonsTypeByOrder[i].num} </span>
-        <span> ${ pokemonsTypeByOrder[i].name} </span>
-        </div>`
+        const templateOrder = `
+        <div class= "numCard"> <span> ${ pokemonsTypeByOrder[i].num} </span> </div>
+        <div class="imgCard"><img src = "${ pokemonsTypeByOrder[i].img}"></div>
+        <div class="txtCard"> <span> ${ pokemonsTypeByOrder[i].name} </span> </div>
+        `
 
-        let cardDivOrder = document.createElement('div')
+        let cardDivOrder = document.createElement('div');
         document.getElementById("grassOrder").appendChild(cardDivOrder);
+        cardDivOrder.setAttribute("class", "containerDiv");
         cardDivOrder.innerHTML = templateOrder;
     };
 
@@ -159,7 +165,7 @@ document.getElementById("reverseOrderButton").addEventListener("click", orderZa)
 
 
 function orderZa() {
-
+    // Para vaciar la pantalla y que no se acumulen los pokemones
     document.getElementById("reverseOrder").innerHTML= "";
 
     document.getElementById("categoryGrass").style.display = "none";
@@ -170,14 +176,15 @@ function orderZa() {
     
     for (let i = 0; i < reversed.length; i++) {
 
-        const templateReverseOrder = `<div>
-        <img src= "${ reversed[i].img}" </img>
-        <span> ${ reversed[i].num} </span>
-        <span> ${ reversed[i].name} </span>
-        </div>`
+        const templateReverseOrder = `
+        <div class= "numCard"> <span > ${ reversed[i].num} </span> </div>
+        <div class="imgCard"> <img src= "${ reversed[i].img}" class="sizePokeCard"></div>
+        <div class="txtCard"> <span> ${ reversed[i].name} </span></div>
+        `
 
         let cardDivRevOrd = document.createElement('div')
         document.getElementById("reverseOrder").appendChild(cardDivRevOrd);
+        cardDivRevOrd.setAttribute("class", "containerDiv");
         cardDivRevOrd.innerHTML = templateReverseOrder;
     };
 };
