@@ -4,9 +4,9 @@ module.exports = {
     es6: true,
     'jest/globals': true,
   },
-  extends: [
-    'airbnb-base',
-  ],
+  // extends: [
+  //   'airbnb-base',
+  // ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',

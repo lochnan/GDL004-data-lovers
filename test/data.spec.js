@@ -7,6 +7,10 @@ describe('example', () => {
     expect(typeof example).toBe('function');
   });
 
+  it('debería ser tipo fuego para: ', () => {
+    expect(typeof example).toBe('function');
+  });
+
   describe('example', () => {
     // escribe aquí tu test
   });
