@@ -1,17 +1,15 @@
 // importamos la función `example`
-import { example } from "../src/data";
+// Para probar la función que filtra a los pokemones por categoría
 
-describe('example', () => {
+import { pokemon } from '../src/data/pokemon/pokemon';
 
-  it('debería ser una función', () => {
-    expect(typeof example).toBe('function');
-  });
+describe('Filter', () => {
 
-  it('debería ser tipo fuego para: ', () => {
-    expect(typeof example).toBe('function');
+  it('must be a function', () => {
+    expect(typeof pokemonsByType).toBe('function');
   });
 
   describe('example', () => {
     // escribe aquí tu test
   });
-});
+})
