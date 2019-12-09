@@ -8,57 +8,47 @@ import { pokemon } from './data/pokemon/pokemon.js';
 // Haciendo una nueva
 const clasify = [];
 // Obteniendo los tipos de pokemones pero me aparece toda la lista con los tipos repetidos
-const filterCategories = pokemon.filter((pokemones) => {
-  return pokemones.type.forEach((type) => {
-    clasify.push(type)
-  });
-});
+const filterCategories = pokemon.filter((pokemones) => pokemones.type.forEach((type) => {
+  clasify.push(type);
+}));
 export const uniqueClasify = Array.from(new Set(clasify));
-/* Para obtener un nuevo array sin los elementos repetidos ver página 
+/* Para obtener un nuevo array sin los elementos repetidos ver página
 https://medium.com/dailyjs/how-to-remove-array-duplicates-in-es6-5daa8789641c */
 
-/* Otra forma de reducir los elementos repetidos de un array 
+/* Otra forma de reducir los elementos repetidos de un array
 const uniqueSet = new Set(clasify);
 const backtoarray = [...uniqueSet];
 */
 
 
 // FUNCIÓN para obtener el filtrado por categoría
-export const pokemonsByType = (pokemon, x) => {
-  return pokemon.filter((pokemones) =>
-    pokemones.type.indexOf(x) !== -1
-  );
-};
-/*Lo que hace indexOf es que me da el índice, pero igual retorna -1 cuando un elemento no está y cero
-cuando si está, así que eso lo usé y coloqué que si el strting "Poison" es diferente de -1 (o sea a no encontrado) regresara true.
-Es probable que funcione porque sólo tengo un tipo fuego en cada uno de los objetos, ya que indexOf solo
+export const pokemonsByType = (pokemons, x) => pokemon.filter((pokemones) => pokemones.type.indexOf(x) !== -1);
+/* Lo que hace indexOf es que me da el índice, pero igual retorna -1 cuando un elemento no está y
+cero cuando si está, así que eso lo usé y coloqué que si el strting "Poison" es diferente de -1
+(o sea no encontrado) regresara true. Es probable que funcione porque sólo tengo un tipo fuego en
+cada uno de los objetos, ya que indexOf solo
 regresa el primer index en el que el elemento puede ser encontrado */
 
 // FUNCIÓN para obtenerv el sort para ordenar de la A a la Z
 
-export const orderABCByType = (pokemonByTypeResult) => {
-  return pokemonByTypeResult.sort(function (a, b) {
-    if (a.name > b.name) {
-      return 1;
-    } else if (a.name < b.name) {
-      return -1;
-    } else {
-      return 0;
-    }
-  });
-};
+export const orderABCByType = (pokemonByTypeResult) => pokemonByTypeResult.sort((a, b) => {
+  if (a.name > b.name) {
+    return 1;
+  } if (a.name < b.name) {
+    return -1;
+  }
+  return 0;
+});
 
 
 // Función para obtener el filtrado de cada pokemon
 
-export const pokemonsModal = (pokemon, m) => {
-  return pokemon.filter((pokemonesM) => {
-    if (pokemonesM.name.indexOf(m) !== -1) {
-      return true;
-    }
-  });
-}
-
+export const pokemonsModal = (pokemons, m) => pokemon.filter((pokemonesM) => {
+  if (pokemonesM.name.indexOf(m) !== -1) {
+    return true;
+  }
+  return pokemon;
+});
 
 /* ----- NOTAS ----- /*
 
@@ -103,7 +93,7 @@ Revisar filtrando objetos pequeños en array.prototype.filter()
 //-----------
 
 
-/*pokemon =  [{
+/* pokemon =  [{
   id: 1,
   num: '001',
   name: 'Bulbasaur',

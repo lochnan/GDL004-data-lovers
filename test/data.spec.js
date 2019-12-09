@@ -1,8 +1,11 @@
 // importamos la función `example`
-// Para probar la función que filtra a los pokemones por categoría
+
 
 import { pokemon } from '../src/data/pokemon/pokemon';
 
+import 
+
+// Para probar la función que filtra a los pokemones por categoría
 describe('Filter', () => {
 
   it('must be a function', () => {
