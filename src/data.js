@@ -11,6 +11,7 @@ const clasify = [];
 const filterCategories = pokemon.filter((pokemones) => pokemones.type.forEach((type) => {
   clasify.push(type);
 }));
+
 export const uniqueClasify = Array.from(new Set(clasify));
 /* Para obtener un nuevo array sin los elementos repetidos ver página
 https://medium.com/dailyjs/how-to-remove-array-duplicates-in-es6-5daa8789641c */
