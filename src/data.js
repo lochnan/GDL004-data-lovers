@@ -40,10 +40,6 @@ export const orderABCByType = (pokemonByTypeResult) => pokemonByTypeResult.sort(
   return 0;
 });
 
-
-
-
-
 /* ----- NOTAS ----- /*
 
 export const pokemonsByType = pokemon.filter((pokemones) => {
