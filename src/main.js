@@ -15,8 +15,7 @@ allClasify.forEach(categoryName => {
 });
 */
 
-/* -------------------------- MOSTRAR FILTRADO --------------------------
-----------------------------------------------------------------------*/
+/* ----------- MOSTRAR FILTRADO ---------------------*/
 /* Funciona que  cree un array con los nombres de los pekemones debido a que es una propiedad
 del navegador
 revisar https://stackoverflow.com/questions/25931810/why-is-document-getelementbyid-not-needed
@@ -33,6 +32,7 @@ function welcomeToYou() {
 }
 
 document.getElementById('welcomeButton').addEventListener('click', welcomeToYou);
+
 // Regresar de página de pokemones filtrados a página principal de categorías
 
 function home() {
@@ -52,14 +52,15 @@ function screenGrass(e) { /* Necesito colocar la e porque es el parámetro  que
 necesita la función para poder ejecutar el addEventListener */
 // Haciendo que pase la página otra
 
+  const x = e.target.id;
+  document.getElementById('poketypeGrass').innerHTML = x;
+  console.log(x); // Me ayuda a ver cual es el id en donde se  está dando el evento  de click
+
   document.getElementById('main').style.display = 'none';
   document.getElementById('reverseOrder').style.display = 'none';
   document.getElementById('grassOrder').style.display = 'none';
   document.getElementById('grass').style.display = 'block';
   document.getElementById('categoryGrass').style.display = 'block';
-
-  const x = e.target.id;
-  console.log(x); // Me ayuda a ver cual es el id en donde se  está dando el evento  de click
 
   /* Obteniendo la data al poner la función pokemonsByType del data.js, la que se obtiene
   al ponerle sus parámetros */
@@ -87,8 +88,6 @@ necesita la función para poder ejecutar el addEventListener */
   }
 
   resultByType = pokemonByTypeResult; // Para sacar el valor del scope local al scope global
-  /* document.querySelector('.prueba').addEventListener('click', (e) =>
-  console.log(e.currentTarget)); */
 }
 
 // Botones para abrir las  categorías
@@ -108,25 +107,7 @@ document.getElementById('Bice').addEventListener('click', screenGrass);
 document.getElementById('Bghost').addEventListener('click', screenGrass);
 document.getElementById('Bdragon').addEventListener('click', screenGrass);
 
-
-/* --------------------------- VENTANA MODAL --------------------------
-----------------------------------------------------------------------*/
-/* window.onload=function showModal(){
-    document.getElementsByClassName("buttonModal").style.display="block";
-
-} */
-
-/*
-const buttonModal = document.querySelectorAll(".buttonModal");
- buttonModal.forEach(function(showModal){
-    showModal.onclick = function(){
-        console.log('asdasdas')
-    };
-        document.querySelector('.prueba').style.display="block";
-
-}); */
-/* -------------------------- ORDENAR POKEMONES --------------------------
-----------------------------------------------------------------------*/
+/* ---------------------- ORDENAR POKEMONES -----------------*/
 // Función para obtener el sort para ordenar de la A a la Z
 
 function orderAz() {
@@ -160,8 +141,7 @@ document.getElementById('order').addEventListener('click', orderAz);
 // var y = orderAz();
 // console.log(y);
 
-/* -------------------------- ORDENAR POKEMONES AL REVÉS --------------------------
-----------------------------------------------------------------------*/
+/* ---------------------- ORDENAR POKEMONES AL REVÉS ---------*/
 
 function orderZa() {
   // Para vaciar la pantalla y que no se acumulen los pokemones
@@ -175,7 +155,7 @@ function orderZa() {
 
   for (let i = 0; i < reversed.length; i += 1) {
     const templateReverseOrder = `
-        <div class= "numCard"> <span > ${reversed[i].num} </span> </div>
+        <div class= "numCard"> <span> ${reversed[i].num} </span> </div>
         <div class="imgCard"> <img src= "${reversed[i].img}" class="sizePokeCard"></div>
         <div class="txtCard"> <span> ${reversed[i].name} </span></div>
         `;
@@ -185,21 +165,40 @@ function orderZa() {
     cardDivRevOrd.setAttribute('class', 'containerDiv');
     cardDivRevOrd.innerHTML = templateReverseOrder;
   }
+  // Get the button that opens the modal
+  var btns = document.getElementsByClassName('containerDiv');
+  console.log(btns);
+  Array.prototype.forEach.call(btns, button => button.addEventListener('click', openModal)); 
 }
 document.getElementById('reverseOrderButton').addEventListener('click', orderZa);
 
-/*
-document.getElementById("buttonModal").addEventListener("click", modalWindow);
-document.getElementById("closeModal").addEventListener("click", closeModal);
+// Modal
+// Get the modal
+let modal = document.getElementById('myModal');
 
-function modalWindow() {
-        modal.style.display="block";
+// Get the span element that closes the modal
+// var span = document.getElementsByClassName('closeModal');
+let closeModal = document.querySelector('.closeModal');
+
+// Function that opens the modal
+function openModal() {
+  modal.style.display = 'block';
+
+  for (let i = 0; i < reversed.length; i += 1) { 
+    const templateContentModal = `
+    <div> ${'HOlA PROBANDO'} </div>
+    `;
+    
+    const contentModal = document.createElement('div');
+    document.getElementById('modal').appendChild(contentModal);
+    contentModal.innerHTML = templateContentModal;
+  }
+}
+
+// Function that closes de modal
+closeModal.onclick = function closeModal() {
+  modal.style.display = 'none';
 };
-
-function closeModal() {
-    modal.style.display="none";
-
-}; */
 
 /* CreateElment con un for para crear de forma dinámica los links
 de los pokemones según la categoría de Grass

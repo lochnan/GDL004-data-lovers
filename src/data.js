@@ -5,7 +5,7 @@ import { pokemon } from './data/pokemon/pokemon.js';
 
 
 // PARA OBTENER UN ARRAY CON LOS NOMBRES DE LAS CATEGORÍAS
-// Haciendo una nueva
+// Haciendo un nuevo array
 const clasify = [];
 // Obteniendo los tipos de pokemones pero me aparece toda la lista con los tipos repetidos
 const filterCategories = pokemon.filter((pokemones) => pokemones.type.forEach((type) => {
@@ -13,6 +13,7 @@ const filterCategories = pokemon.filter((pokemones) => pokemones.type.forEach((t
 }));
 
 export const uniqueClasify = Array.from(new Set(clasify));
+console.log(uniqueClasify);
 /* Para obtener un nuevo array sin los elementos repetidos ver página
 https://medium.com/dailyjs/how-to-remove-array-duplicates-in-es6-5daa8789641c */
 
@@ -20,7 +21,6 @@ https://medium.com/dailyjs/how-to-remove-array-duplicates-in-es6-5daa8789641c */
 const uniqueSet = new Set(clasify);
 const backtoarray = [...uniqueSet];
 */
-
 
 // FUNCIÓN para obtener el filtrado por categoría
 export const pokemonsByType = (pokemons, x) => pokemon.filter((pokemones) => pokemones.type.indexOf(x) !== -1);
@@ -30,8 +30,7 @@ cero cuando si está, así que eso lo usé y coloqué que si el strting "Poison"
 cada uno de los objetos, ya que indexOf solo
 regresa el primer index en el que el elemento puede ser encontrado */
 
-// FUNCIÓN para obtenerv el sort para ordenar de la A a la Z
-
+// FUNCIÓN para obtener el sort para ordenar de la A a la Z
 export const orderABCByType = (pokemonByTypeResult) => pokemonByTypeResult.sort((a, b) => {
   if (a.name > b.name) {
     return 1;
@@ -42,14 +41,8 @@ export const orderABCByType = (pokemonByTypeResult) => pokemonByTypeResult.sort(
 });
 
 
-// Función para obtener el filtrado de cada pokemon
 
-export const pokemonsModal = (pokemons, m) => pokemon.filter((pokemonesM) => {
-  if (pokemonesM.name.indexOf(m) !== -1) {
-    return true;
-  }
-  return pokemon;
-});
+
 
 /* ----- NOTAS ----- /*
 
@@ -91,8 +84,6 @@ y se guardaría en la variable myVar
 Revisar filtrando objetos pequeños en array.prototype.filter()
  https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/filter
 */
-//-----------
-
 
 /* pokemon =  [{
   id: 1,
